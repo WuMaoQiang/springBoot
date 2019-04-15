@@ -16,12 +16,18 @@ server:
 #  - dog
 #  - pig
 
+#   <!--导入配置文件处理器，配置文件进行绑定就会有提示 例：person下输入a则age就提示出来了-->
+#        <dependency>
+#            <groupId>org.springframework.boot</groupId>
+#            <artifactId>spring-boot-configuration-processor</artifactId>
+#            <optional>true</optional>
+#        </dependency>
 
-person:
-    lastName: xiaoqiang
-    age: 18
-    maps: {aaa: aaa,bbb: bbb,ccc: ccc}
-    lists:
-       - a
-       - b
-       - c
+#person:
+#    lastName: 张4
+#    age: 18
+#    maps: {aaa: aaa,bbb: bbb,ccc: ccc}
+#    lists:
+#       - a
+#       - b
+#       - c

@@ -1,10 +1,8 @@
-package com.cc.demo.hello;
+package com.cc.demo.lesson1.hello;
 
-import com.cc.demo.bean.Person;
+import com.cc.demo.lesson1.bean.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 //@ResponseBody
