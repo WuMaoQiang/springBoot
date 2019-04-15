@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+#  对象的两种写法
+#firends:{lastName: 'zhangsan' ,age: 20 }
+
+#firends2:
+#     lastName: zhangsan
+#     age: 20
+
+#数组的两种写法
+#pets: [cat,daog,pig]
+# -空格 值  表示数组中的一个元素
+#pets2:
+#  - cat
+#  - dog
+#  - pig
+
+
+person:
+    lastName: xiaoqiang
+    age: 18
+    maps: {aaa: aaa,bbb: bbb,ccc: ccc}
+    lists:
+       - a
+       - b
+       - c
