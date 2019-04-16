@@ -1,5 +1,3 @@
-
-
 #  对象的两种写法
 #firends:{lastName: 'zhangsan' ,age: 20 }
 
@@ -33,6 +31,7 @@ spring:
 ---
 server:
   port: 8082
+
   person:
     lastName: 张8082_${random.uuid}
     age:  ${random.int(10)}
@@ -44,6 +43,23 @@ server:
     - c
 spring:
   profiles: dev
+#debug: true
+
+
+#修改log打印级别
+#  //日志的级别
+#  //从低到高
+#  //可以调整输出的日志级别；日志就只会在这个级别以后的高级别生效
+#  logger.trace("这是trace日志");
+#  logger.debug("这是debug信息");
+#  //SpringBoot默认给的是info级别，如果没指定就是默认的root级别
+#  logger.info("这是info日志");
+#  logger.warn("这是warn信息");
+#  logger.error("这是Error信息");
+logging:
+  level:
+    com.cc: trace
+  file: spring.log
 ---
 
 server:

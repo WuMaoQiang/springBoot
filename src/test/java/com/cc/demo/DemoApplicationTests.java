@@ -11,8 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
-@Autowired
+    @Autowired
     Person person;
+
     @Test
     public void contextLoads() {
         System.out.println(person);
@@ -23,9 +24,12 @@ public class DemoApplicationTests {
     ApplicationContext ioc;
 
     @Test
-    public void  testHelloService(){
-        boolean b=ioc.containsBean("helloService222");
-        System.out.println("将 helloService222添加到容器中"+b);
+    public void testHelloService() {
+        boolean b = ioc.containsBean("helloService222");
+        System.out.println("将 helloService222添加到容器中" + b);
 
     }
+
+
+
 }

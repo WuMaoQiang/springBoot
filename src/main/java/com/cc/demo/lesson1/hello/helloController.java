@@ -14,6 +14,5 @@ public class helloController {
     @RequestMapping("/hello")
     public String getHello() {
         return person.getLastName();
-
     }
 }
