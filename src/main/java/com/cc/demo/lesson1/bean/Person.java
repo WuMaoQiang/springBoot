@@ -16,19 +16,29 @@ import java.util.Map;
  */
 @Component
 @ConfigurationProperties(prefix ="person" )
-@PropertySource(value = {"classpath:person.properties"}) //加载类路径下的person.properties 并通过ConfigurationProperties绑定person
+//@PropertySource(value = {"classpath:person.properties"}) //加载类路径下的person.properties 并通过ConfigurationProperties绑定person
 public class Person {
 
     private String lastName;
     private Integer age;
+    private String sex;
     private Map<String, String> maps;
     private List<String> lists;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     @Override
     public String toString() {
         return "Person{" +
                 "lastName='" + lastName + '\'' +
                 ", age=" + age +
+                ", sex='" + sex + '\'' +
                 ", maps=" + maps +
                 ", lists=" + lists +
                 '}';

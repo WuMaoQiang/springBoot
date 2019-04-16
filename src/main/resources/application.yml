@@ -1,5 +1,4 @@
-server:
-  port: 8081
+
 
 #  对象的两种写法
 #firends:{lastName: 'zhangsan' ,age: 20 }
@@ -22,12 +21,41 @@ server:
 #            <artifactId>spring-boot-configuration-processor</artifactId>
 #            <optional>true</optional>
 #        </dependency>
+#配置文件占位符
+#随机数  random.value   random.int  ........
+#占位符获取之前配置的值，如果没有可以指定默认值
 
-#person:
-#    lastName: 张4
-#    age: 18
-#    maps: {aaa: aaa,bbb: bbb,ccc: ccc}
-#    lists:
-#       - a
-#       - b
-#       - c
+server:
+  port: 8081
+spring:
+  profiles:
+    active: pro
+---
+server:
+  port: 8082
+  person:
+    lastName: 张8082_${random.uuid}
+    age:  ${random.int(10)}
+    sex: ${person.lastName}_man  # ${person.hello:hello}_man
+    maps: {aaa: aaa,bbb: bbb,ccc: ccc}
+    lists:
+    - a
+    - b
+    - c
+spring:
+  profiles: dev
+---
+
+server:
+  port: 8083
+person:
+  lastName: 张8083_${random.uuid}
+  age:  ${random.int(10)}
+  sex: ${person.lastName}_man  # ${person.hello:hello}_man
+  maps: {aaa: aaa,bbb: bbb,ccc: ccc}
+  lists:
+  - a
+  - b
+  - c
+spring:
+  profiles: pro
