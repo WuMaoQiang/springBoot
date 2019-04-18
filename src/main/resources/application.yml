@@ -27,12 +27,14 @@ server:
   port: 8081
 spring:
   profiles:
-    active: pro
+    active: dev
 ---
 server:
   port: 8082
+  servlet:
+    context-path: /cc
 
-  person:
+person:
     lastName: 张8082_${random.uuid}
     age:  ${random.int(10)}
     sex: ${person.lastName}_man  # ${person.hello:hello}_man
@@ -43,8 +45,9 @@ server:
     - c
 spring:
   profiles: dev
-#debug: true
 
+
+#debug: true
 
 #修改log打印级别
 #  //日志的级别
@@ -64,6 +67,7 @@ logging:
 
 server:
   port: 8083
+
 person:
   lastName: 张8083_${random.uuid}
   age:  ${random.int(10)}
