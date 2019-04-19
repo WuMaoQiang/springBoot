@@ -33,7 +33,6 @@ server:
   port: 8082
   servlet:
     context-path: /cc
-
 person:
     lastName: 张8082_${random.uuid}
     age:  ${random.int(10)}
@@ -45,6 +44,8 @@ person:
     - c
 spring:
   profiles: dev
+  thymeleaf:
+    cache: false #禁用thymeleaf缓存  在html页面使用ctrl+f9进行重新编译
 
 
 #debug: true
