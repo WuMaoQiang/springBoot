@@ -1,8 +1,10 @@
 package com.cc.demo.lesson2_web.config;
 
+import com.cc.demo.lesson2_web.component.LoginHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -12,18 +14,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 // 3、不能标注 @EnableWebMvc（作用是全面接管springMVC）
 @Configuration
 public class MyAppConfig extends WebMvcConfigurerAdapter {
-    //使用ctrl+o能显示所有可以重写的方法
+    //使用ctrl+o能显示所有可以重写的方法,重写了添加视图映射方法
 
-    //第一种方法  视图解析器
+
+    //第一种方法
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        //浏览器发送mvc请求 来到了success
+        //添加视图映射 ---->浏览器发送mvc请求 来到了success
         registry.addViewController("mvc").setViewName("success");
+        //这个是映射到了templates里的index.html
         registry.addViewController("/").setViewName("index");
+        //登录请求 重定向到dashboard防止表单重复提交
+        registry.addViewController("/main.html").setViewName("dashboard");
 
     }
 
-    //第二种方法  视图解析器
+
+    //第二种方法
     @Bean
     public WebMvcConfigurerAdapter getConfig() {
 
@@ -32,7 +39,14 @@ public class MyAppConfig extends WebMvcConfigurerAdapter {
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/index.html").setViewName("index");
             }
+
+            //重写拦截器的 ,两个位置都可以
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/", "/user/login");
+            }
         };
+
     }
 
 
