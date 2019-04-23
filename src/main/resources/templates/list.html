@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp:${emps}">
+        <td th:text="${emp.name}"></td>
+        <td th:text="${emp.age}"></td>
+        <td th:text="${emp.sex}"></td>
+        <td>
+            <a style="height: 30px;width: 80px;background: green" th:href="@{/emp/}+${emp.personid}">编辑</a>
+            <form th:action="@{/emp/}+${emp.personid}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-sm btn-danger">删除</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a style="height: 30px;width: 80px;background: green ;margin-top: 100px" th:href="@{/emp}">添加成员</a>
+
+</body>
+</html>

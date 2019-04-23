@@ -1,10 +1,7 @@
 package com.cc.demo.lesson2_web.config;
 
-import com.cc.demo.lesson2_web.component.LoginHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -40,11 +37,11 @@ public class MyAppConfig extends WebMvcConfigurerAdapter {
                 registry.addViewController("/index.html").setViewName("index");
             }
 
-            //重写拦截器的 ,两个位置都可以
-            @Override
-            public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/", "/user/login");
-            }
+//            //重写登录拦截器的 ,两个位置都可以
+//            @Override
+//            public void addInterceptors(InterceptorRegistry registry) {
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**").excludePathPatterns("/index.html", "/", "/user/login");
+//            }
         };
 
     }

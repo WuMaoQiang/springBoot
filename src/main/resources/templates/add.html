@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/emp}" method="post">
+    <input type="hidden" name="_method" value="put" th:if="${emp!=null}"/>
+    <div>
+        <label>name</label>
+        <input name="name" type="text" placeholder="name" th:value="${emp!=null}?${emp.name}"/>
+    </div>
+    <div>
+        <label>age</label>
+        <input  name="age" type="text" placeholder="age" th:value="${emp!=null}?${emp.age}"/>
+    </div>
+    <div>
+        <label>sex</label>
+        <input  name="sex" type="text" placeholder="sex" th:value="${emp!=null}?${emp.sex}"/>
+    </div>
+    <div>
+        <label>personid</label>
+        <input  name="personid" type="text" placeholder="personid" th:value="${emp!=null}?${emp.personid}"/>
+    </div>
+
+    <button type="submit" th:text="${emp!=null}?'修改':'添加'"></button>
+</form>
+
+</body>
+</html>
