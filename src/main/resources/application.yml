@@ -63,7 +63,7 @@ spring:
 logging:
   level:
     com.cc: trace
-  file: spring.log
+
 ---
 
 server:
