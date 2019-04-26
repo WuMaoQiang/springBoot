@@ -1,5 +1,7 @@
 package com.cc.demo.lesson2_web.config;
 
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
+import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -44,6 +46,12 @@ public class MyAppConfig extends WebMvcConfigurerAdapter {
 //            }
         };
 
+    }
+
+    public DefaultErrorAttributes error() {
+
+
+        return new DefaultErrorAttributes();
     }
 
 
