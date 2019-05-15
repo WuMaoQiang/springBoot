@@ -1,5 +1,6 @@
 package com.cc.demo.lesson2_web.controller;
 
+import com.cc.demo.lesson2_web.meiju;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +15,7 @@ public class HalouController {
     //只有写成Controller 才会返回html页面
     @RequestMapping("/success")
     public String success(Map<String, Object> map) {
+
         Bean bean1 = new Bean();
         bean1.setName("name");
         bean1.setSex("nan");
