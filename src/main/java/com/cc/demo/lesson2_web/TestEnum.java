@@ -20,7 +20,6 @@ public class TestEnum {
                     System.out.println("b");
                     blockingQueue.put("c");
                     System.out.println("c");
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
