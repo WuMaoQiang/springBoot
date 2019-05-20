@@ -12,6 +12,7 @@ import java.util.Map;
 @Controller
 public class HalouController {
 
+
     //只有写成Controller 才会返回html页面
     @RequestMapping("/success")
     public String success(Map<String, Object> map) {
